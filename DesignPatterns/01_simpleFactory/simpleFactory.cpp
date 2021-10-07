@@ -6,6 +6,10 @@
 #include <iostream>
 using namespace std;
 
+/**
+ * brief 工厂类通过传入产品类型来生产产品
+ */
+
 class AProduct
 {
 public:
