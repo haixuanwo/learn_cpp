@@ -21,7 +21,7 @@ public:
 
 int fuck()
 {
-	if (0)
+	if (1)
 		throw A();	// 1、抛出异常
 	else
 		throw B();
