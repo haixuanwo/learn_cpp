@@ -78,8 +78,8 @@ static void test3()
     try{
         except();
     }
-    catch(int){
-        cout<<"catch:"<<endl;
+    catch(int value){
+        cout<<"catch: "<<value<<endl;
     }
 }
 
