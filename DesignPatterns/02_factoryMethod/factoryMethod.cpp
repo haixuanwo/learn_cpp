@@ -7,8 +7,7 @@
 using namespace std;
 
 /**
- * brief 工厂类通过传入产品类型来生产产品
- *       让子类决定实例化哪一个类。类的实例化延迟到子类。
+ * brief 不同的工厂生产不同的产品
  */
 
 class AbProduct
