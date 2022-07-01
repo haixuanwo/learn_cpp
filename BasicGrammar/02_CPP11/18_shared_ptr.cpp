@@ -1,5 +1,16 @@
+/*
+ * @Author: Clark
+ * @Email: haixuanwoTxh@gmail.com
+ * @Date: 2022-05-27 12:56:40
+ * @LastEditors: Clark
+ * @LastEditTime: 2022-07-01 12:42:02
+ * @Description: file content
+ */
+
 #include <iostream>
+#include <vector>
 #include <memory>
+
 using namespace std;
 
 /*
@@ -14,7 +25,6 @@ using namespace std;
 智能指针在申请堆内存空间的同时，会为其配备一个整形值（初始值为 1），每当有新对象使用此堆内存时，
 该整形值 +1；反之，每当使用此堆内存的对象被释放时，该整形值减 1。当堆空间对应的整形值为 0 时，
 即表明不再有对象使用它，该堆空间就会被释放掉
-
 */
 
 /*
@@ -49,8 +59,20 @@ int main(int argc, char * argv [ ])
     cout<<p2.use_count()<<endl;
 
     // 自定义释放规则
-    std::shared_ptr<int> p6(new int[10], std::default_delete<int[]>());
+    shared_ptr<int> p6(new int[10], std::default_delete<int[]>());
+
+    cout<<"make shared"<<endl;
+    auto p = make_shared<vector<int>>();
+
+    for (size_t i = 0; i < 5; i++)
+    {
+        p->push_back(i);
+    }
+
+    for (auto &&i : *p)
+    {
+        cout<<i<<endl;
+    }
 
     return 0;
 }
-
