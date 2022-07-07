@@ -3,7 +3,7 @@
  * @Email: haixuanwoTxh@gmail.com
  * @Date: 2022-05-27 12:56:40
  * @LastEditors: Clark
- * @LastEditTime: 2022-07-01 12:42:02
+ * @LastEditTime: 2022-07-04 13:48:55
  * @Description: file content
  */
 
@@ -38,6 +38,16 @@ use_count()	    返回同当前 shared_ptr 对象（包括它）指向相同的�
 unique()	    判断当前 shared_ptr 对象指向的堆内存，是否不再有其它 shared_ptr 对象再指向它。
 operator bool()	判断当前 shared_ptr 对象是否为空智能指针，如果是空指针，返回 false；反之，返回 true。
 */
+
+class A{
+    public:
+    void show()
+    {
+        cout<<"hellp: "<<yes<<endl;
+    }
+
+    int yes;
+};
 int main(int argc, char * argv [ ])
 {
     shared_ptr<int> p1(new int(10));
@@ -72,6 +82,19 @@ int main(int argc, char * argv [ ])
     for (auto &&i : *p)
     {
         cout<<i<<endl;
+    }
+
+
+    // auto a = make_shared<A>();
+    shared_ptr<A> a;
+    cout<<a.use_count()<<endl;
+    if (a.use_count() > 0)
+    {-
+        a->show();
+    }
+    else
+    {
+        cout<<"use count 0"<<endl;
     }
 
     return 0;
