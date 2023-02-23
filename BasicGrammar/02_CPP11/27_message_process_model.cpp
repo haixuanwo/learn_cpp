@@ -46,11 +46,12 @@ int consume_item()
     pair<int, int> msgDataItem;
     {
         unique_lock<mutex> lck(mtx);
-        if (0 == msgData.size())
+        while (0 == msgData.size())
         {
             cout<<"wait for message ..."<<endl;
             repo_message.wait(lck);
         }
+
         swap(msgDataItem, msgData.front());
         msgData.pop_front();
     }
