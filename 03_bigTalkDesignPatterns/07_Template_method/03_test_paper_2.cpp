@@ -19,10 +19,7 @@ public:
         cout << "答案是：" << answer1() << endl;
     }
 
-    virtual string answer1()
-    {
-
-    }
+    virtual string answer1() = 0;
 
     void test_question2()
     {
@@ -30,10 +27,7 @@ public:
         cout << "答案是：" << answer2() << endl;
     }
 
-    virtual string answer2()
-    {
-
-    }
+    virtual string answer2() = 0;
 
     void test_question3()
     {
@@ -41,10 +35,7 @@ public:
         cout << "答案是：" << answer3() << endl;
     }
 
-    virtual string answer3()
-    {
-
-    }
+    virtual string answer3() = 0;
 };
 
 class TestPaperA : public TestPaper
