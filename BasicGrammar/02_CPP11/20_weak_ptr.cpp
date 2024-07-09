@@ -1,3 +1,11 @@
+/*
+ * @Author: Clark
+ * @Email: haixuanwoTxh@gmail.com
+ * @Date: 2024-07-09 20:29:56
+ * @LastEditors: Clark
+ * @LastEditTime: 2024-07-09 20:41:09
+ * @Description: file content
+ */
 #include <iostream>
 #include <memory>
 using namespace std;
@@ -17,14 +25,16 @@ int main(int argc, char * argv [ ])
 {
     shared_ptr<int> sp1(new int(10));
     shared_ptr<int> sp2(sp1);
-    shared_ptr<int> wp(sp2);
+    weak_ptr<int> wp(sp2);
 
     cout<<wp.use_count()<<endl;
 
     sp2.reset();    // 释放
     cout<<wp.use_count()<<endl;
 
-
+    // cout << *wp << endl; // 不能访问
+    std::shared_ptr <int> sp3 = wp.lock(); // 转为 shared_ptr 指针
+    cout << *sp3 << endl;
+    cout << *sp1 << endl;
     return 0;
 }
-
